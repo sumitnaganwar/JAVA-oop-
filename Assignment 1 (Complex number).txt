@@ -1,8 +1,3 @@
-Name=Sumit Naganwar
-Roll no =39
-div=IT(A)
-
-
 
 public class Complex {
 	private int real,img;
