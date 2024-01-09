@@ -1,0 +1,271 @@
+import java.util.Scanner;
+public class matrix {
+
+	private int row,col;
+	private double mat[][] = new double[5][5];
+	
+	public matrix(int row,int col,double mat[][])
+	{
+		this.row =row;
+		this.col = col;
+		
+		for(int i = 0; i < row; i++)
+		{
+			for(int j= 0; j < col; j++)
+			{
+				this.mat[i][j] = mat[i][j];
+			}
+		}
+		
+		
+	}
+	
+	public matrix()
+	{
+		row = 0;
+		col = 0;
+		
+		for(int i = 0; i < row; i++)
+		{
+			for(int j= 0; j < col; j++)
+			{
+				mat[i][j] = 0;
+			}
+		}
+	}
+		
+
+
+		public void add(matrix x,matrix y)
+		{
+			row=x.row;
+			col=y.col;
+	
+			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					mat[i][j] = x.mat[i][j] + y.mat[i][j];
+				}
+			}
+		}
+		
+		public void sub(matrix x,matrix y)
+		{
+			row=x.row;
+			col=y.col;
+	
+			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					mat[i][j] = x.mat[i][j] - y.mat[i][j];
+				}
+			}
+		}
+		
+		public void multi(matrix x,matrix y)
+		{
+		     if(x.col== y.row)
+                     {
+			this.row=x.row;
+			this.row=y.col;
+ 
+			
+			for(int i = 0; i < x.row; i++)
+			{
+				for(int j= 0; j < y.col; j++)
+				{
+                                    for(int k=0 ;k < y.row; k++)
+                                       {
+					int p = x.mat[i][j] * y.mat[i][j];
+                                        mat[i][j] = mat[i][j]+p;
+				       }
+			        }
+		         }
+                         System.out.println("Multiplication : ");
+                       }
+                      else
+                     {
+                       System.out.println("Multiplication is not possible. ");
+                     }
+                    }
+		
+		public void transadd(matrix x,matrix y)
+		{
+			row=x.row;
+			col=y.col;
+	
+			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					mat[i][j] = x.mat[j][i] + y.mat[j][i];
+				}
+			}
+		}
+		
+		public void transsub(matrix x,matrix y)
+		{
+			row=x.row;
+			col=y.col;
+	
+			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					mat[i][j] = x.mat[j][i] - y.mat[j][i];
+				}
+			}
+		}
+
+		public void transmulti(matrix x,matrix y)
+		{
+			row=x.row;
+			col=y.col;
+	
+			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					mat[i][j] = x.mat[j][i] * y.mat[j][i];
+				}
+			}
+		}
+
+
+
+
+		
+		public void display()
+		{
+			for(int i = 0; i < row; i++)
+			{
+				for(int j= 0; j < col; j++)
+				{
+					System.out.print(mat[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+
+
+		
+}
+
+++++=========================================================================================================
+import java.util.*;
+public class matrix_op {
+
+	public static void main(String[] args) {
+		int r, c;
+		double mat1[][] = new double[5][5];
+		double mat2[][] = new double[5][5];
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Row:");
+		r = sc.nextInt();
+		System.out.println("Col:");
+		c = sc.nextInt();
+		
+		System.out.println("First:");
+		for(int i = 0; i < r; i++)
+		{
+			for(int j= 0; j < c; j++)
+			{
+				System.out.println("Element:");
+				mat1[i][j] = sc.nextDouble();
+			}
+		}
+		
+		System.out.println("Second:");
+		for(int i = 0; i < r; i++)
+		{
+			for(int j= 0; j < c; j++)
+			{
+				System.out.println("Element:");
+				mat2[i][j] = sc.nextDouble();
+			}
+		}
+		
+		
+		matrix m1 = new matrix(r,c,mat1);
+		matrix m2 = new matrix(r,c,mat2);
+		matrix m3 = new matrix();
+		matrix m4 = new matrix();
+		matrix m5 = new matrix();
+		matrix m6 = new matrix();
+		matrix m7 = new matrix();
+		matrix m8 = new matrix();
+
+
+		System.out.println("First Matrix is:");
+		m1.display();
+		System.out.println("Second Matrix is:");
+		m2.display();
+
+		int ch;
+		do {
+			System.out.println("/n1.Addition is:");
+			System.out.println("2.Subsrtaction is:");
+			System.out.println("3.multiplication is:");
+			System.out.println("4.Transpose Addition is:");
+			System.out.println("5,Transpose substraction is:");
+			System.out.println("6.Transpose multiplication is:");
+			System.out.println("7.Exit");
+		
+			ch=sc.nextInt();
+
+			switch(ch)
+			{
+			case 1:
+				m3.add(m1,m2);
+				m3.display();
+				break;
+			case 2:
+				m4.sub(m1, m2);
+				m4.display();
+				break;
+			case 3:
+				m5.multi(m1,m2);
+				m5.display();
+				break;
+			case 4:
+				m6.transadd(m1,m2);
+				m6.display();
+				break;
+			case 5:
+				m7.transsub(m1,m2);
+				m7.display();
+				break;
+			case 6:
+				m8.transmulti(m1,m2);
+				m8.display();
+
+			}
+		}
+	while(ch != 7);
+	}
+}
+
+		
+
+
+
+
+		
+		
+
+		
+
+
+
+	
+
+
