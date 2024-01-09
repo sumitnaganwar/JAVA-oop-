@@ -1,0 +1,101 @@
+Name=Sumit Naganwar
+Roll no =39
+div=IT(A)
+
+
+
+public class Complex {
+	private int real,img;
+	
+public Complex() {
+	real=0;
+	img=0;
+}
+public Complex(int real,int img) {
+	this.real=real;
+	this.img=img;
+			
+}
+public void add(Complex x,Complex y) {
+	real=x.real+y.real;
+	img=x.img+y.img;
+			
+}
+public void sub(Complex x,Complex y) {
+	real=x.real-y.real;
+    img=x.img-y.img;
+			
+}
+ public void mult(Complex x,Complex y) {
+	real=x.real*y.real-x.img*y.img;
+	img=x.real*y.img+x.img*y.real;
+							
+}
+		
+public void div(Complex x,Complex y) {
+	float s= y.real*y.real+y.img*y.img;
+	real=(int) (x.real*y.real+x.img*y.img/s);
+	img=(int) (x.img*y.real-x.real*y.img/s);
+			
+}
+public void display() {
+	System.out.println(real+ "+" +img + "i");
+
+}
+}
+
+import java.util.*;
+public class Complex_op {
+
+	public static void main(String[] args) {
+        int ch;
+        int i1,i2,r1,r2;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first complex number : ");
+        i1=sc.nextInt();
+        r1=sc.nextInt();
+        
+        System.out.println("Enter Second complex number : ");
+        i2=sc.nextInt();
+        r2=sc.nextInt();
+        
+        Complex c1 = new Complex(i1,r1);
+        Complex c2 = new Complex(i2,r2);
+        Complex c3 = new Complex();
+
+
+       
+
+        do{
+            System.out.println("\nEnter 1 to perform Addition");
+            System.out.println("Enter 2 to perform Subtraction");
+            System.out.println("Enter 3 to perform Multiplication");
+            System.out.println("Enter 4 to perform Division");
+            System.out.println("Enter 5 to Exit");
+            ch = sc.nextInt();
+
+            switch(ch)
+            {
+                case 1:
+                 c3.add(c1,c2);
+                 c3.display();
+                 break;
+                case 2:
+                 c3.sub(c1,c2);
+                 c3.display();
+                 break;
+                case 3:
+                 c3.mult(c1,c2);
+                 c3.display();
+                 break;
+                case 4:
+                 c3.div(c1, c2);
+                 c3.display();
+            }
+
+
+        }while(ch != 5);
+    }
+}
+	
+
