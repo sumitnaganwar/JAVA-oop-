@@ -1,0 +1,186 @@
+import java.util.*;
+public class array_list 
+{
+	
+	public static void main(String[] args) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> even = new ArrayList<Integer>();
+		ArrayList<Integer> odd = new ArrayList<Integer>();
+		ArrayList<Integer> prime = new ArrayList<Integer>();
+		ArrayList<String> LIST = new ArrayList<String>();
+	    ArrayList<String> palin = new ArrayList<String>();
+	    
+	    Scanner sc = new Scanner(System.in);
+	    int ch;
+	    do
+	    {
+	    	System.out.println("1)Integer");
+	 	    System.out.println("2)String");
+	 	    System.out.println("3)Exit");
+	 		
+	 	    System.out.println("Enter choice: ");
+	 	    ch=sc.nextInt()	;
+	 	    
+	 	    switch(ch)
+	 	    {
+	 	    case 1:
+	 	      int element;
+			  int num;
+			
+			
+			System.out.println("INT ELEMENTS: ");
+			element=sc.nextInt();	
+	       
+			for(int i=0;i<element;i++)
+			{
+				System.out.println("NUMBER: ");
+				num=sc.nextInt();
+				list.add(num);
+			}
+			
+			System.out.println("LIST IS:");
+			System.out.println(list);
+			
+			for(int j=0;j<list.size();j++)
+			{
+				if(list.get(j)%2 == 0)
+				{
+					even.add(list.get(j));
+				}
+				else
+				{
+					odd.add(list.get(j));
+				}
+			}
+			
+			System.out.println("EVEN NUMBERS: ");
+			System.out.println(even);
+			System.out.println("ODD NUMBERS: ");
+			System.out.println(odd);
+			
+			int flag;
+			
+			System.out.println(list.size());
+			for(int j=0;j<list.size();j++)
+			{
+				
+				flag=0;
+				
+				for(int i=2;i<list.get(j);i++)
+				{
+					//System.out.println(list.get(j));
+					if(list.get(j)%i == 0)
+					{
+						flag=1;
+						break;
+					}
+					
+				}
+				if(flag==0)
+				{
+					prime.add(list.get(j));
+				}
+				
+			}
+			
+			
+
+			System.out.println("PRIME NUMBERS: ");
+			System.out.println(prime);
+			break;
+			
+	 	    case 2: 
+	 		    int ELE;
+	 		    String st;
+	 		    String reverse;
+	 			System.out.println("ELEMENTS: ");
+	 			ELE=sc.nextInt();	
+	 		    
+	 			for(int i=0;i<ELE;i++)
+	 			{
+	 				System.out.println("String: ");
+	 				st=sc.next();
+	 				LIST.add(st);
+	 			}
+	 			
+	 			System.out.println("LIST IS:");
+	 			System.out.println(LIST);
+	 			
+	 			for(int j=0;j<LIST.size();j++)
+	 			{
+	 				int len;
+	 				
+	 				len=LIST.get(j).length();
+	 				reverse ="";
+	 				//System.out.println("Before:"+reverse);
+	 				for(int i =len-1;i>=0;--i)
+	 				{
+	 					//System.out.println("Hi");
+	 					 reverse=reverse+(LIST.get(j)).charAt(i);
+	 				}
+	 				//System.out.println("After:"+reverse);
+	 				if((LIST.get(j)).toLowerCase().equals(reverse.toLowerCase()))
+	 				{
+	 					palin.add(reverse);
+	 					
+	 				}
+	 				
+	 				}
+
+	 	    }
+	 	   System.out.println(palin);
+	 			
+	}while(ch!=3);
+	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
++______________________________________________________________=
+write a java program to accept and display the month number.throw number formate exception if improper month number is entered
+
+
+
+import java.util.Scanner;
+
+public class MonthNumberDisplay {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the month number (1-12): ");
+            String input = scanner.nextLine();
+            int monthNumber = Integer.parseInt(input);
+
+            if (monthNumber >= 1 && monthNumber <= 12) {
+                String monthName = getMonthName(monthNumber);
+                System.out.println("The corresponding month is: " + monthName);
+            } else {
+                System.out.println("Invalid month number. Please enter a number between 1 and 12.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Please enter a valid integer for the month number.");
+        } finally {
+            scanner.close();
+        }
+    }
+
+    private static String getMonthName(int monthNumber) {
+        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August",
+                "September", "October", "November", "December"};
+        return monthNames[monthNumber - 1];
+    }
+}
+
+
