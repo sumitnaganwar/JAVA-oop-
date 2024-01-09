@@ -1,0 +1,149 @@
+Name=Sumit Naganwar
+Roll no =39
+div=IT(A)
+
+
+
+
+#include <iostream>
+
+using namespace std;
+class feet_inch;
+
+class meter_centimeter
+{
+    int mt,cm;
+    public:
+ //   void getdata();
+    void display();
+    
+    meter_centimeter(){
+        mt=cm=0;
+    }
+    meter_centimeter(int mt,int cm){
+        this->mt=mt;
+        this->cm=cm;
+    }
+    friend meter_centimeter add(meter_centimeter,feet_inch);
+    friend meter_centimeter sub(meter_centimeter ,feet_inch);
+
+};
+
+
+    
+void meter_centimeter :: display()
+{
+    cout<<"\n\nmeter is : "<<mt;
+    cout<<"\ncentimeter is : "<<cm;
+}
+    
+    
+class feet_inch
+{
+     int ft,in;
+     public:
+   //  void accept();
+     void output();
+     
+     feet_inch(){
+         ft=in=0;
+     }
+     feet_inch(int ft,int in){
+         this->ft=ft;
+         this->in=in;
+     }
+     
+     friend meter_centimeter add(meter_centimeter,feet_inch);
+     friend meter_centimeter sub(meter_centimeter ,feet_inch);
+
+};
+     
+     
+ void feet_inch ::output()
+ {
+     cout<<"\nfeet is : "<<ft;
+     cout<<"\ninch is : "<<in;
+  }   
+  
+  
+meter_centimeter add(meter_centimeter m,feet_inch f)
+ {
+      int cal;
+      meter_centimeter temp;
+      cal = (int)(m.mt*100+m.cm +f.ft*30.2+f.in*2.54);
+      //int result = cal;
+      temp.mt = cal/100;
+      temp.cm = cal%100;
+      
+      return temp;
+      }
+
+meter_centimeter sub(meter_centimeter m,feet_inch f)
+ {
+      int cal;
+      meter_centimeter temp;
+      cal = (int)(m.mt*100-m.cm -f.ft*30.2-f.in*2.54);
+      //int result = cal;
+      temp.mt = cal/100;
+      temp.cm = cal%100;
+      
+      return temp;
+      }
+     
+     
+     
+int main()
+{
+    int mt,cm,ft,in;
+    cout<<"Enter the metre and centimeter";
+    cout<<"meter : ";
+    cin>>mt;
+    cout<<"centimeter :";
+    cin>>cm;
+     cout<<"Enter the feet and inch";
+     cout<<"feet :";
+     cin>>ft;
+     cout<<"inch : ";
+     cin>>in;
+     
+
+
+meter_centimeter m1(mt,cm);
+feet_inch f1(ft,in);
+//m1.getdata();
+//.accept();
+m1.display();
+f1.output();
+
+    cout<<"\n1. Addition and O/P in Meters & Centimeters"<<endl;
+    cout<<"2. Subtraction and O/P in Meters and Centimeters"<<endl; 
+    cout<<"Enter the choise.";
+    int choise;
+    cin>>choise;
+    switch(choise){
+    case 1:
+{
+   meter_centimeter m2;
+   m2=add(m1,f1);
+   m2.display();
+   break;
+        }
+    
+    //meter_centimeter m2(mt,cm);
+    //feet_inch f2(ft,in);
+    case 2:
+{
+    meter_centimeter m3;
+    m3=sub(m1,f1);
+    m3.display();
+    break;
+}
+    default :
+{
+        cout<<"Invalide input";
+        break;
+    }
+}
+    
+    return 0;
+}
