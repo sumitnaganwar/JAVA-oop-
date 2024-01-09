@@ -1,0 +1,151 @@
+# Name = Sumit Suresh Naganwar
+# roll no = 39
+
+import java.util.*;
+public class Employee {
+
+	protected String name , address;
+	protected int mobile_no, Employee_ID;
+	protected String mailId;
+    protected String dateOfBirth;
+	
+
+	public void getdata () {
+		Scanner sc=new Scanner (System.in);
+		System.out.println("Name of Employee :");
+		name =sc.next();
+		
+		System.out.println("Address of Employee :");
+		address=sc.next();
+		
+		System.out.println("Mobile_no of Employee :");
+		mobile_no=sc.nextInt();
+		
+		System.out.println("Employee_ID of Employee :");
+		Employee_ID=sc.nextInt();
+		
+		System.out.println("Employee_Email_ID of Employee :");
+		mailId=sc.next();
+		
+		System.out.println("Dete of birth of Employee :");
+		dateOfBirth = sc.next();
+
+	}
+	
+	double basicPay;
+	double da;
+	double hra;
+	double pf;
+	double staffClubFund;
+	double grossSalary;
+	double netSalary;
+    public void generatePaySlip() {
+        // Calculate basic pay, DA, HRA, PF, and staff club fund
+         basicPay = 10000.0; // Replace with the actual basic pay value
+         da = 0.97 * basicPay;
+         hra = 0.10 * basicPay;
+         pf = 0.12 * basicPay;
+         staffClubFund = 0.001 * basicPay;
+        
+        // Calculate gross and net salary
+         grossSalary = basicPay + da + hra;
+         netSalary = grossSalary - pf - staffClubFund;
+    }
+	
+	
+	public void display() {
+		System.out.println("Name of Employee :"+name);
+		System.out.println("Address of Employee :"+address);
+		System.out.println("Mobile_no of Employee :"+mobile_no);
+		System.out.println("Employee_ID of Employee :"+Employee_ID);
+		System.out.println("Employee_Email_ID of Employee :"+mailId);
+		System.out.println("Dete of birth of Employee :"+dateOfBirth);
+        System.out.println("Basic Pay: " + basicPay);
+        System.out.println("DA: " + da);
+        System.out.println("HRA: " + hra);
+        System.out.println("PF: " + pf);
+        System.out.println("Staff Club Fund: " + staffClubFund);
+        System.out.println("Gross Salary: " + grossSalary);
+        System.out.println("Net Salary: " + netSalary);
+    }
+}
+
+_____________________________________________________________________________________________
+
+class Programmer extends Employee {
+	public void display() {
+		System.out.println("please Enter the datails of Programmer");
+
+        super.getdata();
+        super.generatePaySlip();
+        super.display();
+    }
+}
+
+________________________________________________________________________________________________
+
+class team_lead extends Employee {
+	public void display() {
+		System.out.println("please Enter the datails of team lead");
+
+        super.getdata();
+        super.generatePaySlip();
+        super.display();
+    }
+}
+
+________________________________________________________________________________________________
+
+
+
+public class Assistence_project_manager extends Employee {
+	public void display() {
+		System.out.println("please Enter the datails of Assistence project manager");
+        super.getdata();
+        super.generatePaySlip();
+        super.display();
+    }
+
+}
+
+
+___________________________________________________________________________________________________
+
+
+public class project_manager extends Employee {
+	public void display() {
+		System.out.println("please Enter the datails of project manager");
+
+        super.getdata();
+        super.generatePaySlip();
+        super.display();
+    }
+
+}
+
+
+_____________________________________________________________________________________________________
+
+
+public class Employee_op {
+
+	public static void main(String[] args) {
+		 Programmer  p =new Programmer();
+     	 team_lead t = new team_lead();
+		 Assistence_project_manager m = new  Assistence_project_manager();
+		 project_manager n = new project_manager();
+
+		 
+		 p.display();
+		 t.display();
+		 m.display();
+		 n.display();
+
+	}
+
+}
+
+
+____________________________________________________________________________________
+# THANK YOU #
+
