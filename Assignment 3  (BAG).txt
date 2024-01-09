@@ -1,5 +1,3 @@
-Roll=39
-Name=Sumit Naganwar
 
 public class Bag {
 private int wt;
