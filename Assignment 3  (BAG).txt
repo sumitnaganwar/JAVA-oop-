@@ -1,0 +1,134 @@
+Roll=39
+Name=Sumit Naganwar
+
+public class Bag {
+private int wt;
+private String col;
+private static int total_weight;
+private static int total_object;
+
+public Bag()
+{
+	col = "red";
+	wt =10;
+	total_object = total_object+1;
+	total_weight  = total_weight +wt;
+	}
+
+
+public Bag(String col,int wt)
+{
+	this.col= col;
+	this.wt = wt;
+	}
+
+public Bag(String col)
+{
+	this.col=col;
+	wt =10;
+}
+
+public Bag(int wt)
+{
+	this.wt=wt;
+	col="Blue";
+}
+
+public void display(int i)
+{
+	i=i+1;
+System.out.println(i+" "+col+" "+wt);
+}
+	
+public static void output() {
+	System.out.println("Total_object : "+total_object);
+	System.out.println("Total_weight : "+total_weight);
+
+}
+}
+
+
+
+
+import java.util.*;
+public class bad_database {
+
+	public static void main(String[] args) {
+
+		Bag obj[] = new Bag[10];
+		
+		int ch1,ch2,n=0,w;
+		String color;
+		
+		Scanner sc =new Scanner(System.in);
+		
+do {
+	 System.out.println("1.Add");
+	 System.out.println("2.display");
+	 System.out.println("3.exit");
+	 
+	 System.out.println("choice : ");
+	 ch1 = sc.nextInt();
+	 
+switch(ch1)
+{
+case 1:
+	do {
+		 System.out.println("1:Both defoult ");
+		 System.out.println("2:Both from user ");
+		 System.out.println("3:weight");
+		 System.out.println("4:color");
+		 System.out.println("5:Exit");
+		 System.out.println("1.choice");
+		  ch2=sc.nextInt();
+		  switch(ch2)
+		  {
+		  case 1 : obj[n]=new Bag();
+		  n=n+1;
+		  break;
+		  
+		  case 2:
+			  System.out.println("Weight :");
+			    w=sc.nextInt();
+			  System.out.println("col:");
+			  String c = sc.next();
+			  
+			  obj[n]=new Bag(c,w);
+		       n=n+1;
+		       break;
+		  
+		  
+		  case 3: 
+		  System.out.println("weight:");
+		  w=sc.nextInt();
+		  
+		  obj[n]=new Bag(w);
+		  n=n+1;
+		  break;
+		  
+		  case 4:
+		  System.out.println("col:");
+		  c =sc.next();
+		  
+		  obj[n]=new Bag(c);
+		  n=n+1;
+		  break;
+		  }
+	}
+		  
+		 while(ch2!=5);
+		 break;
+		 
+		  
+	case 2: for(int i=0;i<n;i++) {
+		obj[i].display(i);
+	}
+	Bag.output();
+}
+	
+	}
+
+	while(ch1!=3);
+	}
+				  
+		  }
