@@ -1,0 +1,128 @@
+# Name = Sumit Suresh Naganwar
+# roll no = 39
+
+import java.util.Scanner;
+
+abstract public class Shape {
+    Scanner sc = new Scanner(System.in);
+    protected int a;
+    abstract public void compute_area();
+    abstract public void getdata();
+    abstract public void display();
+    //abstract public void accept();
+    //abstract public void show();
+}
+
+______________________________________________________________________
+
+import java.util.Scanner;
+public class circle extends Shape{
+    private double area;
+    Scanner sc = new Scanner(System.in);
+    public void getdata(){
+
+        System.out.println("Enter radius of circle :");
+        a=sc.nextInt();
+    }
+    public void compute_area(){
+        area=3.142*a*a;
+    }
+    public void display(){
+        System.out.println("Area of Circle is : "+area);
+    }
+}
+
+
+
+__________________________________________________________________________
+
+public class rectangle extends Shape{
+    protected int b;
+    double area;
+    public void getdata(){
+        System.out.println("Enter length : ");
+        a=sc.nextInt();
+        System.out.println("Enter breadth : ");
+        b=sc.nextInt();
+    }
+
+    public void compute_area(){
+        area=a*b;
+    }
+
+    public void display(){
+        System.out.println("Arae of Rectangle : "+area);
+    }
+    
+}
+
+_______________________________________________________________________
+
+public class triangle extends Shape {
+    protected int b;
+    double area;
+
+    public void getdata(){
+        System.out.println("Enter length : ");
+        a=sc.nextInt();
+        System.out.println("Enter breadth : ");
+        b=sc.nextInt();
+    }
+    public void compute_area(){
+        area= (0.5 * a * b);
+    }
+    public void display(){
+        System.out.println("the area of triangle is :"+area);
+    }
+	
+}
+
+______________________________________________________________________
+
+import java.util.*;
+public class object {
+    public static void main(String[] args) {
+        Shape s;
+        s=new circle();
+        
+        rectangle r= new rectangle();
+        triangle t= new triangle();
+        
+
+int ch;
+do {
+	System.out.println("1. To find area of Circle");
+	System.out.println("2. To find area of Rectangle ");
+	System.out.println("3. To find area of Triangle");
+	System.out.println("4. Exit");
+	
+	Scanner sc =new Scanner(System.in);
+	ch= sc.nextInt();
+	switch(ch)
+	{
+	case 1:
+           s.getdata();
+           s.compute_area();
+           s.display();
+           break;
+	case 2:
+           s=r;
+           s.getdata();
+           s.compute_area();
+           s.display();
+           break;
+	case 3:
+           s=t;
+           s.getdata();
+           s.compute_area();
+           s.display();
+
+	}
+}
+
+while(ch!=4);
+}
+}
+
+
+	
